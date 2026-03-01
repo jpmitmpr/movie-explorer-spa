@@ -1,16 +1,66 @@
-# React + Vite
+# Movie Explorer SPA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Live Demo
 
-Currently, two official plugins are available:
+Check out the live deployed application here:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+👉 https://movie-explorer-b1egpm0fi-jpmitmprs-projects.vercel.app
 
-## React Compiler
+--- ![alt text](image.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🧠 Project Description
 
-## Expanding the ESLint configuration
+Movie Explorer SPA is a **React Single Page Application** that lets users:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+✅ Search for movies  
+✅ View detailed movie information  
+✅ Add movies to a personal **Favorites** list  
+✅ Navigate through a fully responsive UI  
+✅ Experience smooth client-side routing
+
+This project uses the **OMDb API** to fetch real movie data and demonstrates key React concepts like routing, contexts, state management, and unit testing.
+
+---
+
+## 📌 Features
+
+✔ 4+ Distinct Routes  
+✔ Full Navigation with React Router  
+✔ API Integration (OMDb)  
+✔ Global State with React Context  
+✔ Responsive Design for all screen sizes  
+✔ Unit Tests with Vitest & React Testing Library  
+✔ Deployed Online via Vercel  
+✔ Clear Documentation and Version Control
+
+---
+
+## 🗺 Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Home page |
+| `/search` | Search for movies |
+| `/favorites` | View Favorites list |
+| `/movie/:id` | Movie details page |
+| `*` | 404 Not Found |
+
+---
+
+## 🛠 Tech Stack
+
+- ⚛️ React  
+- 🛠 Vite  
+- 📦 React Router DOM  
+- ☁️ Vercel Deployment  
+- 📙 OMDb API  
+- 🧪 Vitest + React Testing Library  
+
+---
+
+## 📥 Setup & Installation
+
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/movie-explorer-spa.git
+   cd movie-explorer-spa
