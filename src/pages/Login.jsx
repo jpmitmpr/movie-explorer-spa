@@ -8,11 +8,36 @@ function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+
+  // Basic sanitization to prevent XSS
+  const sanitizeInput = (input) => {
+    return input.replace(/[<>]/g, "").trim();
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(email, password);
-    navigate("/");
+
+    const cleanEmail = sanitizeInput(email);
+    const cleanPassword = sanitizeInput(password);
+
+    if (!cleanEmail || !cleanPassword) {
+      setError("Email and password are required");
+      return;
+    }
+
+    try {
+      // simulate CSRF protection token
+      const csrfToken = crypto.randomUUID();
+
+      sessionStorage.setItem("csrf_token", csrfToken);
+
+      login(cleanEmail, cleanPassword);
+
+      navigate("/");
+    } catch (err) {
+      setError("Login failed. Please try again.");
+    }
   };
 
   return (
@@ -36,6 +61,8 @@ function Login() {
 
         <button type="submit">Login</button>
       </form>
+
+      {error && <p>{error}</p>}
     </div>
   );
 }
