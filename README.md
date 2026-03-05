@@ -1,66 +1,179 @@
-# Movie Explorer SPA
+# 🎬 Movie Explorer
 
-## 🚀 Live Demo
-
-Check out the live deployed application here:
-
-👉 https://movie-explorer-b1egpm0fi-jpmitmprs-projects.vercel.app
-
---- ![alt text](image.png)
-
-## 🧠 Project Description
-
-Movie Explorer SPA is a **React Single Page Application** that lets users:
-
-✅ Search for movies  
-✅ View detailed movie information  
-✅ Add movies to a personal **Favorites** list  
-✅ Navigate through a fully responsive UI  
-✅ Experience smooth client-side routing
-
-This project uses the **OMDb API** to fetch real movie data and demonstrates key React concepts like routing, contexts, state management, and unit testing.
+Movie Explorer is a React web application that allows users to search and explore movies using an external movie API. Users can browse movies, search for specific titles, and navigate through different pages of the application.
 
 ---
 
-## 📌 Features
+## 🌐 Live Demo
 
-✔ 4+ Distinct Routes  
-✔ Full Navigation with React Router  
-✔ API Integration (OMDb)  
-✔ Global State with React Context  
-✔ Responsive Design for all screen sizes  
-✔ Unit Tests with Vitest & React Testing Library  
-✔ Deployed Online via Vercel  
-✔ Clear Documentation and Version Control
+You can view the deployed application here:
+
+**Live App:**
+https://vercel.com/jpmitmprs-projects/movie-explorer-spa/EBpgGFgMPTpd6gh4rwsBEFKVbzrP
 
 ---
 
-## 🗺 Routes
+## 📂 GitHub Repository
 
-| Route | Description |
-|-------|-------------|
-| `/` | Home page |
-| `/search` | Search for movies |
-| `/favorites` | View Favorites list |
-| `/movie/:id` | Movie details page |
-| `*` | 404 Not Found |
+The source code for this project is available on GitHub:
+
+**Repository:**
+https://github.com/jpmitmpr/movie-explorer-spa.git
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Features
 
-- ⚛️ React  
-- 🛠 Vite  
-- 📦 React Router DOM  
-- ☁️ Vercel Deployment  
-- 📙 OMDb API  
-- 🧪 Vitest + React Testing Library  
+* 🔍 Search for movies
+* 🎥 Browse movie results
+* 🔐 User authentication (Login page)
+* 🏠 Home page with welcome message
+* ⭐ Add movies to favorites
+* ⚛️ Built with React
+* 🧪 Unit testing using React Testing Library
 
 ---
 
-## 📥 Setup & Installation
+## 🛠️ Technologies Used
 
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/movie-explorer-spa.git
-   cd movie-explorer-spa
+* React
+* React Router
+* JavaScript (ES6+)
+* CSS
+* Vitest
+* React Testing Library
+* Vite
+
+---
+
+## 📂 Project Structure
+
+```
+movie-explorer-spa/
+│
+├── src/
+│   ├── components/
+│   │   └── Header.jsx
+│   │
+│   ├── context/
+│   │   └── FavoritesContext.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Search.jsx
+│   │   ├── Favorites.jsx
+│   │   ├── MovieDetails.jsx
+│   │   └── NotFound.jsx
+│   │
+│   ├── services/
+│   │   └── api.js
+│   │
+│   ├── tests/
+│   │   ├── Home.test.jsx
+│   │   ├── Search.test.jsx
+│   │   └── auth.test.jsx
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+1. Clone the repository
+
+```
+git clone https://github.com/jpmitmpr/movie-explorer-spa.git
+```
+
+2. Navigate to the project folder
+
+```
+cd movie-explorer-spa
+```
+
+3. Install dependencies
+
+```
+npm install
+```
+
+---
+
+## ▶️ Run the Application
+
+Start the development server:
+
+```
+npm run dev
+```
+
+The app will run at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## 🧪 Running Tests
+
+Run all tests with:
+
+```
+npm run test
+```
+
+Example tests include:
+
+* **Home Page Test** – checks if the welcome message renders.
+* **Search Page Test** – verifies the search input and button exist.
+* **Login Test** – confirms the login form renders correctly.
+
+---
+
+## 📌 Example Test
+
+```
+import { render, screen } from '@testing-library/react'
+import Home from '../pages/Home'
+
+test('renders home page text', () => {
+  render(<Home />)
+  expect(screen.getByText(/Welcome to Movie Explorer/i)).toBeInTheDocument()
+})
+```
+
+---
+
+## 🚀 Deployment
+
+This project is deployed using **Vercel**.
+Vercel automatically builds and deploys the application whenever changes are pushed to the GitHub repository.
+
+---
+
+## 📖 Future Improvements
+
+* Improve UI styling
+* Add more detailed movie information
+* Add user authentication with a backend
+* Increase test coverage
+* Add filtering or sorting options for movies
+
+---
+
+## 👨‍💻 Author
+
+Developed as a React project for learning and practice.
+
+---
+
+## 📄 License
+
+This project is open source and available under the **MIT License**.
