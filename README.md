@@ -1,218 +1,234 @@
-# 🎬 Movie Explorer
+Movie Explorer SPA
 
-Movie Explorer is a React single-page application that allows users to search for movies and explore movie details using the OMDb API. The application demonstrates modern React development practices including routing, state management with Context, API integration, and unit testing.
+Movie Explorer is a React single-page application (SPA) that allows users to search for movies, view movie details, and manage a list of favorite movies. The application integrates with the OMDb API to fetch real movie data and demonstrates modern React development practices including routing, context state management, and testing.
 
-Users can search for movies, view detailed information about a specific movie, and save movies to a personal favorites list.
+This project was built as a final assignment to demonstrate front-end development skills, API integration, authentication logic, testing, and deployment.
 
----
-
-## 🌐 Live Demo
+Live Demo
 
 You can view the deployed application here:
 
-**Live App:**
-https://movie-explorer-b1egpm0fi-jpmitmprs-projects.vercel.app
+Live Application
 
----
+https://movie-explorer-spa.vercel.app
 
-## 📂 GitHub Repository
+(If using the Vercel preview link, ensure the project is deployed publicly in Vercel settings.)
 
-The source code for this project is available on GitHub:
+GitHub Repository
 
-**Repository:**
+Source code for the project:
+
 https://github.com/jpmitmpr/movie-explorer-spa
 
----
+Features
 
-## 🚀 Features
+Search for movies using the OMDb API
 
-* 🔍 Search for movies using the OMDb API
-* 🎥 View movie details including poster, plot, and release information
-* ⭐ Add and remove movies from a favorites list
-* 🏠 Home page with application overview
-* 🔐 Login page UI for authentication flow demonstration
-* 📱 Responsive layout
-* ⚛️ Built using React and Vite
-* 🧪 Unit testing with Vitest and React Testing Library
+View movie results dynamically
 
----
+View detailed information for each movie
 
-## 🛠️ Technologies Used
+Add and remove movies from favorites
 
-* React
-* React Router
-* JavaScript (ES6+)
-* Vite
-* CSS
-* OMDb API
-* Vitest
-* React Testing Library
+Simple authentication system
 
----
+Home page with navigation
 
-## 🌐 API Used
+404 page for unknown routes
 
-This project uses the **OMDb API** to retrieve movie information.
+Built with React and React Router
 
-API Documentation:
-https://www.omdbapi.com/
+Unit testing using React Testing Library and Vitest
 
-Example API request:
+Deployed using Vercel
 
-https://www.omdbapi.com/?apikey=YOUR_API_KEY&s=batman
+Technologies Used
 
-The API is used to:
+Frontend technologies used in this project:
 
-* Search for movies by title
-* Retrieve detailed movie information by IMDb ID
+React
 
----
+React Router
 
-## 📂 Project Structure
+Vite
 
-```
-movie-explorer-spa/
+JavaScript (ES6+)
 
-src/
- ├── components/
- │   └── Header.jsx
- │
- ├── context/
- │   └── FavoritesContext.jsx
- │
- ├── pages/
- │   ├── Home.jsx
- │   ├── Login.jsx
- │   ├── Search.jsx
- │   ├── Favorites.jsx
- │   ├── MovieDetails.jsx
- │   └── NotFound.jsx
- │
- ├── services/
- │   └── api.js
- │
- ├── tests/
- │   ├── Home.test.jsx
- │   ├── Search.test.jsx
- │   └── auth.test.jsx
- │
- ├── App.jsx
- └── main.jsx
+CSS
 
-package.json
-README.md
-```
+React Context API
 
----
+Vitest
 
-## ⚙️ Installation
+React Testing Library
 
-1. Clone the repository
+OMDb API
 
-```
+Project Structure
+movie-explorer-spa
+│
+├── src
+│   ├── components
+│   │   ├── Header.jsx
+│   │   └── MovieCard.jsx
+│   │
+│   ├── context
+│   │   ├── AuthContext.jsx
+│   │   └── FavoritesContext.jsx
+│   │
+│   ├── pages
+│   │   ├── Home.jsx
+│   │   ├── Login.jsx
+│   │   ├── Search.jsx
+│   │   ├── Favorites.jsx
+│   │   ├── MovieDetails.jsx
+│   │   └── NotFound.jsx
+│   │
+│   ├── services
+│   │   └── api.js
+│   │
+│   ├── tests
+│   │   ├── Home.test.jsx
+│   │   ├── Search.test.jsx
+│   │   ├── SearchEmpty.test.jsx
+│   │   ├── auth.test.jsx
+│   │   ├── loading.test.jsx
+│   │   └── api.test.js
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── package.json
+└── README.md
+Environment Variables
+
+This project requires an OMDb API key.
+
+Create a .env file in the root of the project:
+
+VITE_OMDB_API_KEY=your_api_key_here
+
+You can obtain a free API key from:
+
+https://www.omdbapi.com/apikey.aspx
+
+Installation
+
+Clone the repository:
+
 git clone https://github.com/jpmitmpr/movie-explorer-spa.git
-```
 
-2. Navigate to the project folder
+Navigate to the project folder:
 
-```
 cd movie-explorer-spa
-```
 
-3. Install dependencies
+Install dependencies:
 
-```
 npm install
-```
-
----
-
-## ▶️ Run the Application
+Running the Application
 
 Start the development server:
 
-```
 npm run dev
-```
 
-The app will run locally at:
+The application will run at:
 
-```
 http://localhost:5173
-```
+Running Tests
 
----
+Run the test suite:
 
-## 🧪 Running Tests
-
-Run all tests with:
-
-```
 npm run test
-```
 
-Current tests include:
+Tests include:
 
-* **Home Page Test** – verifies the welcome message renders
-* **Search Page Test** – confirms the search input and button render
-* **Authentication Test** – checks the login form UI
+Component rendering tests
 
-Testing is implemented using **Vitest** and **React Testing Library**.
+Search functionality tests
 
----
+Authentication tests
 
-## 🔒 Security Considerations
+API error handling tests
 
-Basic frontend security practices were implemented in this project.
+Edge case tests for empty queries
 
-**Input Sanitization (XSS Prevention)**
-User input from the search field is sanitized before being used in API requests to prevent potential cross-site scripting (XSS) attacks.
+Example test:
 
-**Environment Variables**
-The OMDb API key is stored using environment variables rather than being hardcoded into the application.
+import { render, screen } from '@testing-library/react'
+import Home from '../pages/Home'
 
-```
-VITE_OMDB_API_KEY=your_api_key_here
-```
+test('renders home page text', () => {
+  render(<Home />)
+  expect(screen.getByText(/Welcome to Movie Explorer/i)).toBeInTheDocument()
+})
+Security Considerations
 
-This prevents sensitive information from being exposed in the source code.
+Basic security considerations were implemented:
 
-**CSRF Consideration**
-Because this project does not include a backend server or authenticated API requests, CSRF attacks are not applicable in this architecture. The application only consumes public API data.
+XSS Prevention
 
----
+User input from the search field is sanitized by:
 
-## 🌍 Deployment
+Using encodeURIComponent() before sending requests to the API
 
-This project is deployed using **Vercel**.
+Avoiding direct HTML injection into the DOM
 
-Vercel automatically builds and deploys the application whenever new changes are pushed to the GitHub repository.
+CSRF Considerations
 
-Deployment steps:
+Since the application does not communicate with a custom backend or perform authenticated server requests, CSRF risk is minimal. Authentication state is stored locally using localStorage for demonstration purposes.
 
-1. Push code to GitHub
-2. Connect the repository to Vercel
-3. Configure environment variables
-4. Vercel automatically builds and deploys the application
+API Security
 
----
+API keys are stored in environment variables (.env)
 
-## 📖 Future Improvements
+Sensitive credentials are not hardcoded in the source code
 
-* Improve UI styling and layout
-* Add filtering and sorting options for movie searches
-* Expand authentication with a backend service
-* Increase test coverage with additional edge case tests
-* Add loading states and improved error handling
+Deployment
 
----
+This project is deployed using Vercel.
 
-## 👨‍💻 Author
+Deployment process:
 
-Developed as a React project for learning and practice.
+Push code to GitHub
 
----
+Connect repository to Vercel
 
-## 📄 License
+Configure environment variables in Vercel
 
-This project is open source and available under the **MIT License**.
+Vercel automatically builds and deploys the application
+
+Live deployment:
+
+https://movie-explorer-spa.vercel.app
+
+Future Improvements
+
+Possible future improvements include:
+
+Implement real backend authentication
+
+Improve UI/UX with a component library
+
+Add movie filtering and sorting
+
+Add pagination for search results
+
+Improve test coverage
+
+Add protected routes for authenticated users
+
+Author
+
+Developed as a React project for educational purposes and to demonstrate:
+
+React application architecture
+
+API integration
+
+Testing practices
+
+Frontend deployment
+
+License
+
+This project is open source and available under the MIT License.
