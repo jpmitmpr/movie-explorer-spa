@@ -10,6 +10,6 @@ test('renders search input and button', () => {
     </BrowserRouter>
   )
 
-  expect(screen.getByPlaceholderText(/Search movie/i)).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: /Search/i })).toBeInTheDocument()
+  expect(screen.getByPlaceholderText(/search movie/i)).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: /search/i })).toBeInTheDocument()
 })
