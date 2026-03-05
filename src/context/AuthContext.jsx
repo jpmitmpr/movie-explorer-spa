@@ -2,32 +2,64 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const AuthContext = createContext();
 
+const USER_KEY = "movieUser";
+const CSRF_KEY = "csrfToken";
+
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
+  // Load user safely
   useEffect(() => {
-    const storedUser = localStorage.getItem("movieUser");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+    try {
+      const storedUser = sessionStorage.getItem(USER_KEY);
+      if (storedUser) {
+        setUser(JSON.parse(storedUser));
+      }
+    } catch (error) {
+      console.error("Error loading user session", error);
+      sessionStorage.removeItem(USER_KEY);
     }
   }, []);
 
+  // Generate CSRF token
+  const generateCSRFToken = () => {
+    const token = crypto.randomUUID();
+    sessionStorage.setItem(CSRF_KEY, token);
+    return token;
+  };
+
   const login = (email, password) => {
-    const fakeToken = "fake-jwt-token";
+    if (!email || !password) {
+      throw new Error("Email and password are required");
+    }
 
-    const userData = { email, token: fakeToken };
+    const fakeToken = crypto.randomUUID();
+    const csrfToken = generateCSRFToken();
 
-    localStorage.setItem("movieUser", JSON.stringify(userData));
+    const userData = {
+      email,
+      token: fakeToken,
+      csrfToken,
+    };
+
+    sessionStorage.setItem(USER_KEY, JSON.stringify(userData));
     setUser(userData);
   };
 
   const register = (email, password) => {
+    if (!email || !password) {
+      throw new Error("Email and password are required");
+    }
+
     const userData = { email };
-    localStorage.setItem("registeredUser", JSON.stringify(userData));
+
+    // simulate secure registration storage
+    sessionStorage.setItem("registeredUser", JSON.stringify(userData));
   };
 
   const logout = () => {
-    localStorage.removeItem("movieUser");
+    sessionStorage.removeItem(USER_KEY);
+    sessionStorage.removeItem(CSRF_KEY);
     setUser(null);
   };
 
